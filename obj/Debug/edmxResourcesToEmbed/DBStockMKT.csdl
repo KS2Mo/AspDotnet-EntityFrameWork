@@ -1,0 +1,437 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DBStockMarketModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="DBStockMarketEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="DBCustomers" EntityType="DBStockMarketModel.DBCustomer" />
+    <EntitySet Name="DBDeposits" EntityType="DBStockMarketModel.DBDeposit" />
+    <EntitySet Name="DBDepositTypes" EntityType="DBStockMarketModel.DBDepositType" />
+    <EntitySet Name="DBEmployees" EntityType="DBStockMarketModel.DBEmployee" />
+    <EntitySet Name="DBInstrumentHeaders" EntityType="DBStockMarketModel.DBInstrumentHeader" />
+    <EntitySet Name="DBLogChangeCustomers" EntityType="DBStockMarketModel.DBLogChangeCustomer" />
+    <EntitySet Name="DBLogOpenOfCustomers" EntityType="DBStockMarketModel.DBLogOpenOfCustomer" />
+    <EntitySet Name="DBLogPriceOfCustomers" EntityType="DBStockMarketModel.DBLogPriceOfCustomer" />
+    <EntitySet Name="DBLogSummaryOfCustomers" EntityType="DBStockMarketModel.DBLogSummaryOfCustomer" />
+    <EntitySet Name="DBLogTradeOfCustomers" EntityType="DBStockMarketModel.DBLogTradeOfCustomer" />
+    <EntitySet Name="DBMarketPrices" EntityType="DBStockMarketModel.DBMarketPrice" />
+    <EntitySet Name="DBRealizeds" EntityType="DBStockMarketModel.DBRealized" />
+    <EntitySet Name="DBSettings" EntityType="DBStockMarketModel.DBSetting" />
+    <EntitySet Name="DBTradeCloses" EntityType="DBStockMarketModel.DBTradeClose" />
+    <EntitySet Name="DBTradeLogs" EntityType="DBStockMarketModel.DBTradeLog" />
+    <EntitySet Name="DBTradeLogStatus" EntityType="DBStockMarketModel.DBTradeLogStatu" />
+    <EntitySet Name="DBTradeOpens" EntityType="DBStockMarketModel.DBTradeOpen" />
+    <EntitySet Name="DBTradeOpen_Log" EntityType="DBStockMarketModel.DBTradeOpen_Log" />
+    <EntitySet Name="DBTradeOpenStatusIds" EntityType="DBStockMarketModel.DBTradeOpenStatusId" />
+    <EntitySet Name="DBTradeOpenTypes" EntityType="DBStockMarketModel.DBTradeOpenType" />
+    <FunctionImport Name="GetDailyReportCustomerByDate">
+      <Parameter Name="TradingDateStart" Mode="In" Type="DateTime" />
+      <Parameter Name="CustomerId" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GetDailyReportCustomerForheader" ReturnType="Collection(DBStockMarketModel.GetDailyReportCustomerForheader_Result)">
+      <Parameter Name="TradingDateStart" Mode="In" Type="DateTime" />
+      <Parameter Name="CustomerId" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GetDailyReportCustomerForLogClose" ReturnType="Collection(DBStockMarketModel.GetDailyReportCustomerForLogClose_Result)">
+      <Parameter Name="TradingDateStart" Mode="In" Type="DateTime" />
+      <Parameter Name="CustomerId" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GetDailyReportCustomerForLogOpen" ReturnType="Collection(DBStockMarketModel.GetDailyReportCustomerForLogOpen_Result)">
+      <Parameter Name="TradingDateStart" Mode="In" Type="DateTime" />
+      <Parameter Name="CustomerId" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GetDailyReportTradingByDate" ReturnType="Collection(DBStockMarketModel.GetDailyReportTradingByDate_Result)">
+      <Parameter Name="TradeCloseDate" Mode="In" Type="DateTime" />
+      <Parameter Name="CustomerId" Mode="In" Type="String" />
+    </FunctionImport>
+  </EntityContainer>
+  <EntityType Name="DBCustomer">
+    <Key>
+      <PropertyRef Name="CustomerId" />
+    </Key>
+    <Property Name="CustomerId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CustomerIdRef" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="CustomerName" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="EmployeeId" Type="Int64" />
+    <Property Name="InterestCalPercent" Type="Int32" />
+  </EntityType>
+  <EntityType Name="DBDeposit">
+    <Key>
+      <PropertyRef Name="DepositId" />
+    </Key>
+    <Property Name="DepositId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DepositTypeId" Type="Int64" />
+    <Property Name="DepositTypeName" Type="String" MaxLength="1" Unicode="true" FixedLength="false" />
+    <Property Name="CustomerId" Type="Int64" />
+    <Property Name="DepositPrice" Type="Decimal" Precision="18" Scale="2" />
+  </EntityType>
+  <EntityType Name="DBDepositType">
+    <Key>
+      <PropertyRef Name="DepositTypeId" />
+    </Key>
+    <Property Name="DepositTypeId" Type="Int64" Nullable="false" />
+    <Property Name="DepositTypeName" Type="String" MaxLength="1" Unicode="true" FixedLength="false" />
+    <Property Name="DepositTypeNameFull" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="DBEmployee">
+    <Key>
+      <PropertyRef Name="EmployeeId" />
+    </Key>
+    <Property Name="EmployeeId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeTypeId" Type="String" MaxLength="10" Unicode="true" FixedLength="true" />
+    <Property Name="EmployeeFullName" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="EmployeeIdRef" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="EmployeeUsername" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="EmployeePassword" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="EmployeeStatus" Type="Int32" />
+  </EntityType>
+  <EntityType Name="DBInstrumentHeader">
+    <Key>
+      <PropertyRef Name="InstrumentHeaderId" />
+    </Key>
+    <Property Name="InstrumentHeaderId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="InstrumentHeader" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="DBLogChangeCustomer">
+    <Key>
+      <PropertyRef Name="LogChangeCustomerId" />
+    </Key>
+    <Property Name="LogChangeCustomerId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CustomerId" Type="Int64" />
+    <Property Name="CustomerCalOld" Type="Int32" />
+    <Property Name="CustomerCalNew" Type="Int32" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="CreateBy" Type="Int64" />
+  </EntityType>
+  <EntityType Name="DBLogOpenOfCustomer">
+    <Key>
+      <PropertyRef Name="LogOpenOfCusId" />
+    </Key>
+    <Property Name="LogOpenOfCusId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LogOpenOfCusIdRef" Type="Int64" />
+    <Property Name="BuySell" Type="String" MaxLength="1" Unicode="true" FixedLength="false" />
+    <Property Name="OpenClose" Type="String" MaxLength="1" Unicode="true" FixedLength="false" />
+    <Property Name="CustomerId" Type="Int64" />
+    <Property Name="TradeDate" Type="DateTime" Precision="0" />
+    <Property Name="Instrument" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Volume" Type="Int32" />
+    <Property Name="SumVolume" Type="Int32" />
+    <Property Name="Price" Type="String" MaxLength="10" Unicode="true" FixedLength="true" />
+    <Property Name="AvgPrice" Type="Decimal" Precision="18" Scale="6" />
+    <Property Name="TradeOpenIdRef" Type="Int64" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="CreateBy" Type="Int64" />
+    <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdateBy" Type="Int64" />
+    <Property Name="TradeOpenStatus" Type="String" MaxLength="1" Unicode="true" FixedLength="false" />
+    <Property Name="InterestCalPercent" Type="Int32" />
+    <Property Name="InterestCalSum" Type="Decimal" Precision="18" Scale="6" />
+  </EntityType>
+  <EntityType Name="DBLogPriceOfCustomer">
+    <Key>
+      <PropertyRef Name="LogPriceOfCusId" />
+    </Key>
+    <Property Name="LogPriceOfCusId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LogPriceDate" Type="DateTime" Precision="0" />
+    <Property Name="CustomerId" Type="Int64" />
+    <Property Name="CashInAccount" Type="Decimal" Precision="18" Scale="6" />
+    <Property Name="CreditLimit" Type="Decimal" Precision="18" Scale="6" />
+    <Property Name="LineAvailable" Type="Decimal" Precision="18" Scale="6" />
+    <Property Name="CostValue" Type="Decimal" Precision="18" Scale="6" />
+    <Property Name="MKTValue" Type="Decimal" Precision="18" Scale="6" />
+    <Property Name="Unrealized" Type="Decimal" Precision="18" Scale="6" />
+    <Property Name="Realized" Type="Decimal" Precision="18" Scale="6" />
+    <Property Name="ExcessEquity" Type="Decimal" Precision="18" Scale="6" />
+    <Property Name="EquityBalance" Type="Decimal" Precision="18" Scale="6" />
+    <Property Name="InitialMargin" Type="Decimal" Precision="18" Scale="6" />
+    <Property Name="MaintenanceMargin" Type="Decimal" Precision="18" Scale="6" />
+    <Property Name="CallMargin" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="DBLogSummaryOfCustomer">
+    <Key>
+      <PropertyRef Name="LogOpenOfCusId" />
+    </Key>
+    <Property Name="LogOpenOfCusId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CustomerId" Type="Int64" />
+    <Property Name="TradeDate" Type="DateTime" Precision="0" />
+    <Property Name="InstrumentHead" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Instrument" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="MKTValue" Type="Decimal" Precision="18" Scale="6" />
+    <Property Name="LVolume" Type="Int32" />
+    <Property Name="LPrice" Type="Decimal" Precision="18" Scale="6" />
+    <Property Name="LAvgPrice" Type="Decimal" Precision="18" Scale="6" />
+    <Property Name="LInterestCalSum" Type="Decimal" Precision="18" Scale="6" />
+    <Property Name="LMarketPrice" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="LUnrealized" Type="Decimal" Precision="18" Scale="6" />
+    <Property Name="SVolume" Type="Int32" />
+    <Property Name="SPrice" Type="Decimal" Precision="18" Scale="6" />
+    <Property Name="SAvgPrice" Type="Decimal" Precision="18" Scale="6" />
+    <Property Name="SInterestCalSum" Type="Decimal" Precision="18" Scale="6" />
+    <Property Name="SMarketPrice" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="SUnrealized" Type="Decimal" Precision="18" Scale="6" />
+    <Property Name="MinDay" Type="Double" />
+    <Property Name="InterestCalPercent" Type="Double" />
+  </EntityType>
+  <EntityType Name="DBLogTradeOfCustomer">
+    <Key>
+      <PropertyRef Name="LogTradeOfCusId" />
+    </Key>
+    <Property Name="LogTradeOfCusId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CustomerId" Type="Int64" />
+    <Property Name="TradeDate" Type="DateTime" Precision="0" />
+    <Property Name="Instrument" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="BuySell" Type="String" MaxLength="1" Unicode="true" FixedLength="false" />
+    <Property Name="OpenClose" Type="String" MaxLength="1" Unicode="true" FixedLength="false" />
+    <Property Name="Volume" Type="Int32" />
+    <Property Name="Price" Type="Decimal" Precision="18" Scale="6" />
+    <Property Name="AvgPrice" Type="Decimal" Precision="18" Scale="6" />
+    <Property Name="Amount" Type="Decimal" Precision="18" Scale="6" />
+    <Property Name="Interest" Type="Decimal" Precision="18" Scale="6" />
+    <Property Name="Realized" Type="Decimal" Precision="18" Scale="6" />
+    <Property Name="Urealized" Type="Decimal" Precision="18" Scale="6" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="CreateBy" Type="Int64" />
+    <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdateBy" Type="Int64" />
+    <Property Name="StatusId" Type="String" MaxLength="1" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="DBMarketPrice">
+    <Key>
+      <PropertyRef Name="MarketPriceId" />
+    </Key>
+    <Property Name="MarketPriceId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TradeDate" Type="DateTime" Precision="0" />
+    <Property Name="Instrument" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Volume" Type="Int32" />
+    <Property Name="MarketPrice" Type="Decimal" Precision="18" Scale="6" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="CreateBy" Type="Int64" />
+  </EntityType>
+  <EntityType Name="DBRealized">
+    <Key>
+      <PropertyRef Name="RealizedId" />
+    </Key>
+    <Property Name="RealizedId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CustomerId" Type="Int64" />
+    <Property Name="CloseDate" Type="DateTime" Precision="0" />
+    <Property Name="Price" Type="Decimal" Precision="18" Scale="6" />
+    <Property Name="PriceClose" Type="Decimal" Precision="18" Scale="6" />
+    <Property Name="PriceAvgCosts" Type="Decimal" Precision="18" Scale="6" />
+    <Property Name="PriceCosts" Type="Decimal" Precision="18" Scale="6" />
+    <Property Name="Interest" Type="Decimal" Precision="18" Scale="6" />
+    <Property Name="Voloum" Type="Int32" />
+    <Property Name="MinDay" Type="Double" />
+    <Property Name="SumDay" Type="Double" />
+    <Property Name="InterestCalPercent" Type="Double" />
+    <Property Name="TradeOpenId" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="TradeCloseId" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="DBSetting">
+    <Key>
+      <PropertyRef Name="SettingId" />
+    </Key>
+    <Property Name="SettingId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SettingCode" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="SettingName" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="SettingValue" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="CreateBy" Type="Int64" />
+    <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdateBy" Type="Int64" />
+    <Property Name="SettingStatus" Type="String" MaxLength="1" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="DBTradeClose">
+    <Key>
+      <PropertyRef Name="TradeCloseId" />
+    </Key>
+    <Property Name="TradeCloseId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CustomerId" Type="Int64" />
+    <Property Name="TradeCloseDate" Type="DateTime" Precision="0" />
+    <Property Name="OpenInstrument" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="OpenVolume" Type="Int32" />
+    <Property Name="OpenPrice" Type="Decimal" Precision="18" Scale="6" />
+    <Property Name="OpenAvgPrice" Type="Decimal" Precision="18" Scale="6" />
+    <Property Name="CloseVolume" Type="Int32" />
+    <Property Name="ClosePrice" Type="Decimal" Precision="18" Scale="6" />
+    <Property Name="InterestCalPercent" Type="Int32" />
+    <Property Name="InterestCalSum" Type="Decimal" Precision="18" Scale="6" />
+    <Property Name="BuySell" Type="String" MaxLength="1" Unicode="true" FixedLength="false" />
+    <Property Name="OpenClose" Type="String" MaxLength="1" Unicode="true" FixedLength="false" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="CreateBy" Type="Int64" />
+    <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdateBy" Type="Int64" />
+    <Property Name="StatusId" Type="String" MaxLength="1" Unicode="true" FixedLength="false" />
+    <Property Name="TradeOpenIdRef" Type="Int64" />
+  </EntityType>
+  <EntityType Name="DBTradeLog">
+    <Key>
+      <PropertyRef Name="TradeLogId" />
+    </Key>
+    <Property Name="TradeLogId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CustomerId" Type="Int64" />
+    <Property Name="EmployeeId" Type="Int64" />
+    <Property Name="OpenClose" Type="String" MaxLength="1" Unicode="true" FixedLength="false" />
+    <Property Name="BuySell" Type="String" MaxLength="1" Unicode="true" FixedLength="false" />
+    <Property Name="TradeDate" Type="DateTime" Precision="0" />
+    <Property Name="Instrument" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Volume" Type="Int32" />
+    <Property Name="Price" Type="Decimal" Precision="18" Scale="6" />
+    <Property Name="InterestCalPercent" Type="Int32" />
+    <Property Name="MinDay" Type="Int32" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="CreateBy" Type="Int64" />
+    <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdateBy" Type="Int64" />
+    <Property Name="TradeLogStatusId" Type="String" MaxLength="1" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="DBTradeLogStatu">
+    <Key>
+      <PropertyRef Name="TradeLogStatusId" />
+    </Key>
+    <Property Name="TradeLogStatusId" Type="String" Nullable="false" MaxLength="1" Unicode="true" FixedLength="false" />
+    <Property Name="TradeLogStatusDetails" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="DBTradeOpen">
+    <Key>
+      <PropertyRef Name="TradeOpenId" />
+    </Key>
+    <Property Name="TradeOpenId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CustomerId" Type="Int64" />
+    <Property Name="TradeDate" Type="DateTime" Precision="0" />
+    <Property Name="BusinessDate" Type="DateTime" Precision="0" />
+    <Property Name="BuySell" Type="String" MaxLength="1" Unicode="true" FixedLength="false" />
+    <Property Name="OpenClose" Type="String" MaxLength="1" Unicode="true" FixedLength="false" />
+    <Property Name="InstrumentHead" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Instrument" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Volume" Type="Int32" />
+    <Property Name="SumVolume" Type="Int32" />
+    <Property Name="Price" Type="Decimal" Precision="18" Scale="6" />
+    <Property Name="CalPrice" Type="Decimal" Precision="18" Scale="6" />
+    <Property Name="AvgPrice" Type="Decimal" Precision="18" Scale="6" />
+    <Property Name="TradeOpenIdRef" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="TradeCloseIdRef" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="TradeOpenStatusId" Type="String" MaxLength="1" Unicode="true" FixedLength="false" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="CreateBy" Type="Int64" />
+    <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdateBy" Type="Int64" />
+    <Property Name="MinDay" Type="Double" />
+    <Property Name="InterestCalPercent" Type="Double" />
+    <Property Name="InterestCalSum" Type="Decimal" Precision="18" Scale="6" />
+    <Property Name="TradeOpenTypeId" Type="String" MaxLength="1" Unicode="true" FixedLength="false" />
+    <Property Name="CloseDate" Type="DateTime" Precision="0" />
+    <Property Name="SumDay" Type="Double" />
+    <Property Name="EditStatus" Type="String" MaxLength="1" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="DBTradeOpen_Log">
+    <Key>
+      <PropertyRef Name="RowId" />
+    </Key>
+    <Property Name="RowId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TradeOpenId" Type="Int64" />
+    <Property Name="CustomerId" Type="Int64" />
+    <Property Name="TradeDate" Type="DateTime" Precision="0" />
+    <Property Name="BusinessDate" Type="DateTime" Precision="0" />
+    <Property Name="BuySell" Type="String" MaxLength="1" Unicode="true" FixedLength="false" />
+    <Property Name="OpenClose" Type="String" MaxLength="1" Unicode="true" FixedLength="false" />
+    <Property Name="InstrumentHead" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Instrument" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Volume" Type="Int32" />
+    <Property Name="SumVolume" Type="Int32" />
+    <Property Name="Price" Type="Decimal" Precision="18" Scale="6" />
+    <Property Name="CalPrice" Type="Decimal" Precision="18" Scale="6" />
+    <Property Name="AvgPrice" Type="Decimal" Precision="18" Scale="6" />
+    <Property Name="TradeOpenIdRef" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="TradeCloseIdRef" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="TradeOpenStatusId" Type="String" MaxLength="1" Unicode="true" FixedLength="false" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="CreateBy" Type="Int64" />
+    <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdateBy" Type="Int64" />
+    <Property Name="MinDay" Type="Double" />
+    <Property Name="InterestCalPercent" Type="Double" />
+    <Property Name="InterestCalSum" Type="Decimal" Precision="18" Scale="6" />
+    <Property Name="TradeOpenTypeId" Type="String" MaxLength="1" Unicode="true" FixedLength="false" />
+    <Property Name="CloseDate" Type="DateTime" Precision="0" />
+    <Property Name="SumDay" Type="Double" />
+    <Property Name="EditStatus" Type="String" MaxLength="1" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="DBTradeOpenStatusId">
+    <Key>
+      <PropertyRef Name="TradeOpenStatusId" />
+    </Key>
+    <Property Name="TradeOpenStatusId" Type="String" Nullable="false" MaxLength="1" Unicode="true" FixedLength="false" />
+    <Property Name="TradeOpenStatusName" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="TradeOpenStatusDetails" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="DBTradeOpenType">
+    <Key>
+      <PropertyRef Name="TradeOpenTypeId" />
+    </Key>
+    <Property Name="TradeOpenTypeId" Type="String" Nullable="false" MaxLength="1" Unicode="true" FixedLength="false" />
+    <Property Name="TradeOpenTypeName" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <ComplexType Name="GetDailyReportCustomerForheader_Result">
+    <Property Type="Int64" Name="CustomerId" Nullable="false" />
+    <Property Type="String" Name="CustomerIdRef" Nullable="true" />
+    <Property Type="DateTime" Name="LogPriceDate" Nullable="true" />
+    <Property Type="String" Name="CustomerName" Nullable="true" />
+    <Property Type="String" Name="EmployeeFullName" Nullable="true" />
+    <Property Type="Decimal" Name="CashInAccount" Nullable="true" Precision="18" Scale="6" />
+    <Property Type="Decimal" Name="CreditLimit" Nullable="true" Precision="18" Scale="6" />
+    <Property Type="Decimal" Name="LineAvailable" Nullable="true" Precision="18" Scale="6" />
+    <Property Type="Decimal" Name="CostValue" Nullable="true" Precision="18" Scale="6" />
+    <Property Type="Decimal" Name="Unrealized" Nullable="true" Precision="18" Scale="6" />
+    <Property Type="Decimal" Name="Realized" Nullable="true" Precision="18" Scale="6" />
+    <Property Type="Decimal" Name="ExcessEquity" Nullable="true" Precision="18" Scale="6" />
+    <Property Type="Decimal" Name="EquityBalance" Nullable="true" Precision="18" Scale="6" />
+    <Property Type="Decimal" Name="InitialMargin" Nullable="true" Precision="18" Scale="6" />
+    <Property Type="Decimal" Name="MaintenanceMargin" Nullable="true" Precision="18" Scale="6" />
+    <Property Type="String" Name="CallMargin" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="GetDailyReportCustomerForLogClose_Result">
+    <Property Type="DateTime" Name="TradeDate" Nullable="true" />
+    <Property Type="String" Name="BuySell" Nullable="true" MaxLength="1" />
+    <Property Type="String" Name="OpenClose" Nullable="true" MaxLength="1" />
+    <Property Type="String" Name="Instrument" Nullable="true" />
+    <Property Type="Int32" Name="Volume" Nullable="true" />
+    <Property Type="Decimal" Name="Price" Nullable="true" Precision="18" Scale="6" />
+    <Property Type="Decimal" Name="AvgPrice" Nullable="true" Precision="18" Scale="6" />
+    <Property Type="Double" Name="MinDay" Nullable="true" />
+    <Property Type="Double" Name="SPercent" Nullable="true" />
+    <Property Type="Decimal" Name="Interest" Nullable="true" Precision="18" Scale="6" />
+    <Property Type="Decimal" Name="TRealized" Nullable="true" Precision="31" Scale="6" />
+  </ComplexType>
+  <ComplexType Name="GetDailyReportCustomerForLogOpen_Result">
+    <Property Type="Int64" Name="LogOpenOfCusId" Nullable="false" />
+    <Property Type="Int64" Name="CustomerId" Nullable="true" />
+    <Property Type="DateTime" Name="TradeDate" Nullable="true" />
+    <Property Type="String" Name="Instrument" Nullable="true" />
+    <Property Type="Decimal" Name="MKTValue" Nullable="true" Precision="18" Scale="6" />
+    <Property Type="Int32" Name="LVolume" Nullable="true" />
+    <Property Type="Decimal" Name="LPrice" Nullable="true" Precision="18" Scale="6" />
+    <Property Type="Decimal" Name="LAvgPrice" Nullable="true" Precision="18" Scale="6" />
+    <Property Type="Decimal" Name="LInterestCalSum" Nullable="true" Precision="18" Scale="6" />
+    <Property Type="Decimal" Name="LMarketPrice" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="LUnrealized" Nullable="true" Precision="18" Scale="6" />
+    <Property Type="Int32" Name="SVolume" Nullable="true" />
+    <Property Type="Decimal" Name="SPrice" Nullable="true" Precision="18" Scale="6" />
+    <Property Type="Decimal" Name="SAvgPrice" Nullable="true" Precision="18" Scale="6" />
+    <Property Type="Decimal" Name="SInterestCalSum" Nullable="true" Precision="18" Scale="6" />
+    <Property Type="Decimal" Name="SMarketPrice" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="SUnrealized" Nullable="true" Precision="18" Scale="6" />
+    <Property Type="Double" Name="MinDay" Nullable="true" />
+    <Property Type="Double" Name="InterestCalPercent" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="GetDailyReportTradingByDate_Result">
+    <Property Type="Int64" Name="CustomerId" Nullable="true" />
+    <Property Type="DateTime" Name="TradeCloseDate" Nullable="true" />
+    <Property Type="String" Name="OpenInstrument" Nullable="true" />
+    <Property Type="Decimal" Name="OpenAvgPrice" Nullable="true" Precision="18" Scale="6" />
+    <Property Type="Int32" Name="CloseVolume" Nullable="true" />
+    <Property Type="Decimal" Name="ClosePrice" Nullable="true" Precision="18" Scale="6" />
+    <Property Type="Int32" Name="InterestCalPercent" Nullable="true" />
+    <Property Type="Decimal" Name="InterestCalSum" Nullable="true" Precision="18" Scale="6" />
+    <Property Type="String" Name="BuySell" Nullable="true" MaxLength="1" />
+    <Property Type="String" Name="OpenClose" Nullable="true" MaxLength="1" />
+  </ComplexType>
+</Schema>

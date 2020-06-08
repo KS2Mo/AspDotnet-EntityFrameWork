@@ -1,0 +1,433 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DBStockMarketModelStoreContainer" CdmEntityContainer="DBStockMarketEntities">
+    <EntitySetMapping Name="DBCustomers">
+      <EntityTypeMapping TypeName="DBStockMarketModel.DBCustomer">
+        <MappingFragment StoreEntitySet="DBCustomer">
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="CustomerIdRef" ColumnName="CustomerIdRef" />
+          <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+          <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+          <ScalarProperty Name="InterestCalPercent" ColumnName="InterestCalPercent" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DBDeposits">
+      <EntityTypeMapping TypeName="DBStockMarketModel.DBDeposit">
+        <MappingFragment StoreEntitySet="DBDeposit">
+          <ScalarProperty Name="DepositId" ColumnName="DepositId" />
+          <ScalarProperty Name="DepositTypeId" ColumnName="DepositTypeId" />
+          <ScalarProperty Name="DepositTypeName" ColumnName="DepositTypeName" />
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="DepositPrice" ColumnName="DepositPrice" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DBDepositTypes">
+      <EntityTypeMapping TypeName="DBStockMarketModel.DBDepositType">
+        <MappingFragment StoreEntitySet="DBDepositType">
+          <ScalarProperty Name="DepositTypeId" ColumnName="DepositTypeId" />
+          <ScalarProperty Name="DepositTypeName" ColumnName="DepositTypeName" />
+          <ScalarProperty Name="DepositTypeNameFull" ColumnName="DepositTypeNameFull" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DBEmployees">
+      <EntityTypeMapping TypeName="DBStockMarketModel.DBEmployee">
+        <MappingFragment StoreEntitySet="DBEmployee">
+          <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+          <ScalarProperty Name="EmployeeTypeId" ColumnName="EmployeeTypeId" />
+          <ScalarProperty Name="EmployeeFullName" ColumnName="EmployeeFullName" />
+          <ScalarProperty Name="EmployeeIdRef" ColumnName="EmployeeIdRef" />
+          <ScalarProperty Name="EmployeeUsername" ColumnName="EmployeeUsername" />
+          <ScalarProperty Name="EmployeePassword" ColumnName="EmployeePassword" />
+          <ScalarProperty Name="EmployeeStatus" ColumnName="EmployeeStatus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DBInstrumentHeaders">
+      <EntityTypeMapping TypeName="DBStockMarketModel.DBInstrumentHeader">
+        <MappingFragment StoreEntitySet="DBInstrumentHeader">
+          <ScalarProperty Name="InstrumentHeaderId" ColumnName="InstrumentHeaderId" />
+          <ScalarProperty Name="InstrumentHeader" ColumnName="InstrumentHeader" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DBLogChangeCustomers">
+      <EntityTypeMapping TypeName="DBStockMarketModel.DBLogChangeCustomer">
+        <MappingFragment StoreEntitySet="DBLogChangeCustomer">
+          <ScalarProperty Name="LogChangeCustomerId" ColumnName="LogChangeCustomerId" />
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="CustomerCalOld" ColumnName="CustomerCalOld" />
+          <ScalarProperty Name="CustomerCalNew" ColumnName="CustomerCalNew" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DBLogOpenOfCustomers">
+      <EntityTypeMapping TypeName="DBStockMarketModel.DBLogOpenOfCustomer">
+        <MappingFragment StoreEntitySet="DBLogOpenOfCustomer">
+          <ScalarProperty Name="LogOpenOfCusId" ColumnName="LogOpenOfCusId" />
+          <ScalarProperty Name="LogOpenOfCusIdRef" ColumnName="LogOpenOfCusIdRef" />
+          <ScalarProperty Name="BuySell" ColumnName="BuySell" />
+          <ScalarProperty Name="OpenClose" ColumnName="OpenClose" />
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="TradeDate" ColumnName="TradeDate" />
+          <ScalarProperty Name="Instrument" ColumnName="Instrument" />
+          <ScalarProperty Name="Volume" ColumnName="Volume" />
+          <ScalarProperty Name="SumVolume" ColumnName="SumVolume" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="AvgPrice" ColumnName="AvgPrice" />
+          <ScalarProperty Name="TradeOpenIdRef" ColumnName="TradeOpenIdRef" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
+          <ScalarProperty Name="TradeOpenStatus" ColumnName="TradeOpenStatus" />
+          <ScalarProperty Name="InterestCalPercent" ColumnName="InterestCalPercent" />
+          <ScalarProperty Name="InterestCalSum" ColumnName="InterestCalSum" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DBLogPriceOfCustomers">
+      <EntityTypeMapping TypeName="DBStockMarketModel.DBLogPriceOfCustomer">
+        <MappingFragment StoreEntitySet="DBLogPriceOfCustomer">
+          <ScalarProperty Name="LogPriceOfCusId" ColumnName="LogPriceOfCusId" />
+          <ScalarProperty Name="LogPriceDate" ColumnName="LogPriceDate" />
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="CashInAccount" ColumnName="CashInAccount" />
+          <ScalarProperty Name="CreditLimit" ColumnName="CreditLimit" />
+          <ScalarProperty Name="LineAvailable" ColumnName="LineAvailable" />
+          <ScalarProperty Name="CostValue" ColumnName="CostValue" />
+          <ScalarProperty Name="MKTValue" ColumnName="MKTValue" />
+          <ScalarProperty Name="Unrealized" ColumnName="Unrealized" />
+          <ScalarProperty Name="Realized" ColumnName="Realized" />
+          <ScalarProperty Name="ExcessEquity" ColumnName="ExcessEquity" />
+          <ScalarProperty Name="EquityBalance" ColumnName="EquityBalance" />
+          <ScalarProperty Name="InitialMargin" ColumnName="InitialMargin" />
+          <ScalarProperty Name="MaintenanceMargin" ColumnName="MaintenanceMargin" />
+          <ScalarProperty Name="CallMargin" ColumnName="CallMargin" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DBLogSummaryOfCustomers">
+      <EntityTypeMapping TypeName="DBStockMarketModel.DBLogSummaryOfCustomer">
+        <MappingFragment StoreEntitySet="DBLogSummaryOfCustomer">
+          <ScalarProperty Name="LogOpenOfCusId" ColumnName="LogOpenOfCusId" />
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="TradeDate" ColumnName="TradeDate" />
+          <ScalarProperty Name="Instrument" ColumnName="Instrument" />
+          <ScalarProperty Name="MKTValue" ColumnName="MKTValue" />
+          <ScalarProperty Name="LVolume" ColumnName="LVolume" />
+          <ScalarProperty Name="LPrice" ColumnName="LPrice" />
+          <ScalarProperty Name="LAvgPrice" ColumnName="LAvgPrice" />
+          <ScalarProperty Name="LInterestCalSum" ColumnName="LInterestCalSum" />
+          <ScalarProperty Name="LMarketPrice" ColumnName="LMarketPrice" />
+          <ScalarProperty Name="LUnrealized" ColumnName="LUnrealized" />
+          <ScalarProperty Name="SVolume" ColumnName="SVolume" />
+          <ScalarProperty Name="SPrice" ColumnName="SPrice" />
+          <ScalarProperty Name="SAvgPrice" ColumnName="SAvgPrice" />
+          <ScalarProperty Name="SInterestCalSum" ColumnName="SInterestCalSum" />
+          <ScalarProperty Name="SMarketPrice" ColumnName="SMarketPrice" />
+          <ScalarProperty Name="SUnrealized" ColumnName="SUnrealized" />
+          <ScalarProperty Name="MinDay" ColumnName="MinDay" />
+          <ScalarProperty Name="InterestCalPercent" ColumnName="InterestCalPercent" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DBLogTradeOfCustomers">
+      <EntityTypeMapping TypeName="DBStockMarketModel.DBLogTradeOfCustomer">
+        <MappingFragment StoreEntitySet="DBLogTradeOfCustomer">
+          <ScalarProperty Name="LogTradeOfCusId" ColumnName="LogTradeOfCusId" />
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="TradeDate" ColumnName="TradeDate" />
+          <ScalarProperty Name="Instrument" ColumnName="Instrument" />
+          <ScalarProperty Name="BuySell" ColumnName="BuySell" />
+          <ScalarProperty Name="OpenClose" ColumnName="OpenClose" />
+          <ScalarProperty Name="Volume" ColumnName="Volume" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="AvgPrice" ColumnName="AvgPrice" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="Interest" ColumnName="Interest" />
+          <ScalarProperty Name="Realized" ColumnName="Realized" />
+          <ScalarProperty Name="Urealized" ColumnName="Urealized" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
+          <ScalarProperty Name="StatusId" ColumnName="StatusId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DBMarketPrices">
+      <EntityTypeMapping TypeName="DBStockMarketModel.DBMarketPrice">
+        <MappingFragment StoreEntitySet="DBMarketPrice">
+          <ScalarProperty Name="MarketPriceId" ColumnName="MarketPriceId" />
+          <ScalarProperty Name="TradeDate" ColumnName="TradeDate" />
+          <ScalarProperty Name="Instrument" ColumnName="Instrument" />
+          <ScalarProperty Name="Volume" ColumnName="Volume" />
+          <ScalarProperty Name="MarketPrice" ColumnName="MarketPrice" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DBRealizeds">
+      <EntityTypeMapping TypeName="DBStockMarketModel.DBRealized">
+        <MappingFragment StoreEntitySet="DBRealized">
+          <ScalarProperty Name="RealizedId" ColumnName="RealizedId" />
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="CloseDate" ColumnName="CloseDate" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="PriceClose" ColumnName="PriceClose" />
+          <ScalarProperty Name="PriceAvgCosts" ColumnName="PriceAvgCosts" />
+          <ScalarProperty Name="PriceCosts" ColumnName="PriceCosts" />
+          <ScalarProperty Name="Interest" ColumnName="Interest" />
+          <ScalarProperty Name="Voloum" ColumnName="Voloum" />
+          <ScalarProperty Name="MinDay" ColumnName="MinDay" />
+          <ScalarProperty Name="SumDay" ColumnName="SumDay" />
+          <ScalarProperty Name="InterestCalPercent" ColumnName="InterestCalPercent" />
+          <ScalarProperty Name="TradeOpenId" ColumnName="TradeOpenId" />
+          <ScalarProperty Name="TradeCloseId" ColumnName="TradeCloseId" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DBSettings">
+      <EntityTypeMapping TypeName="DBStockMarketModel.DBSetting">
+        <MappingFragment StoreEntitySet="DBSetting">
+          <ScalarProperty Name="SettingId" ColumnName="SettingId" />
+          <ScalarProperty Name="SettingCode" ColumnName="SettingCode" />
+          <ScalarProperty Name="SettingName" ColumnName="SettingName" />
+          <ScalarProperty Name="SettingValue" ColumnName="SettingValue" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
+          <ScalarProperty Name="SettingStatus" ColumnName="SettingStatus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DBTradeCloses">
+      <EntityTypeMapping TypeName="DBStockMarketModel.DBTradeClose">
+        <MappingFragment StoreEntitySet="DBTradeClose">
+          <ScalarProperty Name="TradeCloseId" ColumnName="TradeCloseId" />
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="TradeCloseDate" ColumnName="TradeCloseDate" />
+          <ScalarProperty Name="OpenInstrument" ColumnName="OpenInstrument" />
+          <ScalarProperty Name="OpenVolume" ColumnName="OpenVolume" />
+          <ScalarProperty Name="OpenPrice" ColumnName="OpenPrice" />
+          <ScalarProperty Name="OpenAvgPrice" ColumnName="OpenAvgPrice" />
+          <ScalarProperty Name="CloseVolume" ColumnName="CloseVolume" />
+          <ScalarProperty Name="ClosePrice" ColumnName="ClosePrice" />
+          <ScalarProperty Name="InterestCalPercent" ColumnName="InterestCalPercent" />
+          <ScalarProperty Name="InterestCalSum" ColumnName="InterestCalSum" />
+          <ScalarProperty Name="BuySell" ColumnName="BuySell" />
+          <ScalarProperty Name="OpenClose" ColumnName="OpenClose" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
+          <ScalarProperty Name="StatusId" ColumnName="StatusId" />
+          <ScalarProperty Name="TradeOpenIdRef" ColumnName="TradeOpenIdRef" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DBTradeLogs">
+      <EntityTypeMapping TypeName="DBStockMarketModel.DBTradeLog">
+        <MappingFragment StoreEntitySet="DBTradeLog">
+          <ScalarProperty Name="TradeLogId" ColumnName="TradeLogId" />
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+          <ScalarProperty Name="OpenClose" ColumnName="OpenClose" />
+          <ScalarProperty Name="BuySell" ColumnName="BuySell" />
+          <ScalarProperty Name="TradeDate" ColumnName="TradeDate" />
+          <ScalarProperty Name="Instrument" ColumnName="Instrument" />
+          <ScalarProperty Name="Volume" ColumnName="Volume" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="InterestCalPercent" ColumnName="InterestCalPercent" />
+          <ScalarProperty Name="MinDay" ColumnName="MinDay" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
+          <ScalarProperty Name="TradeLogStatusId" ColumnName="TradeLogStatusId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DBTradeLogStatus">
+      <EntityTypeMapping TypeName="DBStockMarketModel.DBTradeLogStatu">
+        <MappingFragment StoreEntitySet="DBTradeLogStatus">
+          <ScalarProperty Name="TradeLogStatusId" ColumnName="TradeLogStatusId" />
+          <ScalarProperty Name="TradeLogStatusDetails" ColumnName="TradeLogStatusDetails" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DBTradeOpens">
+      <EntityTypeMapping TypeName="DBStockMarketModel.DBTradeOpen">
+        <MappingFragment StoreEntitySet="DBTradeOpen">
+          <ScalarProperty Name="TradeOpenId" ColumnName="TradeOpenId" />
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="TradeDate" ColumnName="TradeDate" />
+          <ScalarProperty Name="BusinessDate" ColumnName="BusinessDate" />
+          <ScalarProperty Name="BuySell" ColumnName="BuySell" />
+          <ScalarProperty Name="OpenClose" ColumnName="OpenClose" />
+          <ScalarProperty Name="InstrumentHead" ColumnName="InstrumentHead" />
+          <ScalarProperty Name="Instrument" ColumnName="Instrument" />
+          <ScalarProperty Name="Volume" ColumnName="Volume" />
+          <ScalarProperty Name="SumVolume" ColumnName="SumVolume" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="CalPrice" ColumnName="CalPrice" />
+          <ScalarProperty Name="AvgPrice" ColumnName="AvgPrice" />
+          <ScalarProperty Name="TradeOpenIdRef" ColumnName="TradeOpenIdRef" />
+          <ScalarProperty Name="TradeCloseIdRef" ColumnName="TradeCloseIdRef" />
+          <ScalarProperty Name="TradeOpenStatusId" ColumnName="TradeOpenStatusId" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
+          <ScalarProperty Name="MinDay" ColumnName="MinDay" />
+          <ScalarProperty Name="InterestCalPercent" ColumnName="InterestCalPercent" />
+          <ScalarProperty Name="InterestCalSum" ColumnName="InterestCalSum" />
+          <ScalarProperty Name="TradeOpenTypeId" ColumnName="TradeOpenTypeId" />
+          <ScalarProperty Name="CloseDate" ColumnName="CloseDate" />
+          <ScalarProperty Name="SumDay" ColumnName="SumDay" />
+          <ScalarProperty Name="EditStatus" ColumnName="EditStatus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DBTradeOpen_Log">
+      <EntityTypeMapping TypeName="DBStockMarketModel.DBTradeOpen_Log">
+        <MappingFragment StoreEntitySet="DBTradeOpen_Log">
+          <ScalarProperty Name="RowId" ColumnName="RowId" />
+          <ScalarProperty Name="TradeOpenId" ColumnName="TradeOpenId" />
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="TradeDate" ColumnName="TradeDate" />
+          <ScalarProperty Name="BusinessDate" ColumnName="BusinessDate" />
+          <ScalarProperty Name="BuySell" ColumnName="BuySell" />
+          <ScalarProperty Name="OpenClose" ColumnName="OpenClose" />
+          <ScalarProperty Name="InstrumentHead" ColumnName="InstrumentHead" />
+          <ScalarProperty Name="Instrument" ColumnName="Instrument" />
+          <ScalarProperty Name="Volume" ColumnName="Volume" />
+          <ScalarProperty Name="SumVolume" ColumnName="SumVolume" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="CalPrice" ColumnName="CalPrice" />
+          <ScalarProperty Name="AvgPrice" ColumnName="AvgPrice" />
+          <ScalarProperty Name="TradeOpenIdRef" ColumnName="TradeOpenIdRef" />
+          <ScalarProperty Name="TradeCloseIdRef" ColumnName="TradeCloseIdRef" />
+          <ScalarProperty Name="TradeOpenStatusId" ColumnName="TradeOpenStatusId" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
+          <ScalarProperty Name="MinDay" ColumnName="MinDay" />
+          <ScalarProperty Name="InterestCalPercent" ColumnName="InterestCalPercent" />
+          <ScalarProperty Name="InterestCalSum" ColumnName="InterestCalSum" />
+          <ScalarProperty Name="TradeOpenTypeId" ColumnName="TradeOpenTypeId" />
+          <ScalarProperty Name="CloseDate" ColumnName="CloseDate" />
+          <ScalarProperty Name="SumDay" ColumnName="SumDay" />
+          <ScalarProperty Name="EditStatus" ColumnName="EditStatus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DBTradeOpenStatusIds">
+      <EntityTypeMapping TypeName="DBStockMarketModel.DBTradeOpenStatusId">
+        <MappingFragment StoreEntitySet="DBTradeOpenStatusId">
+          <ScalarProperty Name="TradeOpenStatusId" ColumnName="TradeOpenStatusId" />
+          <ScalarProperty Name="TradeOpenStatusName" ColumnName="TradeOpenStatusName" />
+          <ScalarProperty Name="TradeOpenStatusDetails" ColumnName="TradeOpenStatusDetails" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DBTradeOpenTypes">
+      <EntityTypeMapping TypeName="DBStockMarketModel.DBTradeOpenType">
+        <MappingFragment StoreEntitySet="DBTradeOpenType">
+          <ScalarProperty Name="TradeOpenTypeId" ColumnName="TradeOpenTypeId" />
+          <ScalarProperty Name="TradeOpenTypeName" ColumnName="TradeOpenTypeName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="GetDailyReportCustomerByDate" FunctionName="DBStockMarketModel.Store.GetDailyReportCustomerByDate" />
+    <FunctionImportMapping FunctionImportName="GetDailyReportCustomerForheader" FunctionName="DBStockMarketModel.Store.GetDailyReportCustomerForheader">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DBStockMarketModel.GetDailyReportCustomerForheader_Result">
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="CustomerIdRef" ColumnName="CustomerIdRef" />
+          <ScalarProperty Name="LogPriceDate" ColumnName="LogPriceDate" />
+          <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+          <ScalarProperty Name="EmployeeFullName" ColumnName="EmployeeFullName" />
+          <ScalarProperty Name="CashInAccount" ColumnName="CashInAccount" />
+          <ScalarProperty Name="CreditLimit" ColumnName="CreditLimit" />
+          <ScalarProperty Name="LineAvailable" ColumnName="LineAvailable" />
+          <ScalarProperty Name="CostValue" ColumnName="CostValue" />
+          <ScalarProperty Name="Unrealized" ColumnName="Unrealized" />
+          <ScalarProperty Name="Realized" ColumnName="Realized" />
+          <ScalarProperty Name="ExcessEquity" ColumnName="ExcessEquity" />
+          <ScalarProperty Name="EquityBalance" ColumnName="EquityBalance" />
+          <ScalarProperty Name="InitialMargin" ColumnName="InitialMargin" />
+          <ScalarProperty Name="MaintenanceMargin" ColumnName="MaintenanceMargin" />
+          <ScalarProperty Name="CallMargin" ColumnName="CallMargin" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetDailyReportCustomerForLogClose" FunctionName="DBStockMarketModel.Store.GetDailyReportCustomerForLogClose">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DBStockMarketModel.GetDailyReportCustomerForLogClose_Result">
+          <ScalarProperty Name="TradeDate" ColumnName="TradeDate" />
+          <ScalarProperty Name="BuySell" ColumnName="BuySell" />
+          <ScalarProperty Name="OpenClose" ColumnName="OpenClose" />
+          <ScalarProperty Name="Instrument" ColumnName="Instrument" />
+          <ScalarProperty Name="Volume" ColumnName="Volume" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="AvgPrice" ColumnName="AvgPrice" />
+          <ScalarProperty Name="MinDay" ColumnName="MinDay" />
+          <ScalarProperty Name="SPercent" ColumnName="SPercent" />
+          <ScalarProperty Name="Interest" ColumnName="Interest" />
+          <ScalarProperty Name="TRealized" ColumnName="TRealized" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetDailyReportCustomerForLogOpen" FunctionName="DBStockMarketModel.Store.GetDailyReportCustomerForLogOpen">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DBStockMarketModel.GetDailyReportCustomerForLogOpen_Result">
+          <ScalarProperty Name="LogOpenOfCusId" ColumnName="LogOpenOfCusId" />
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="TradeDate" ColumnName="TradeDate" />
+          <ScalarProperty Name="Instrument" ColumnName="Instrument" />
+          <ScalarProperty Name="MKTValue" ColumnName="MKTValue" />
+          <ScalarProperty Name="LVolume" ColumnName="LVolume" />
+          <ScalarProperty Name="LPrice" ColumnName="LPrice" />
+          <ScalarProperty Name="LAvgPrice" ColumnName="LAvgPrice" />
+          <ScalarProperty Name="LInterestCalSum" ColumnName="LInterestCalSum" />
+          <ScalarProperty Name="LMarketPrice" ColumnName="LMarketPrice" />
+          <ScalarProperty Name="LUnrealized" ColumnName="LUnrealized" />
+          <ScalarProperty Name="SVolume" ColumnName="SVolume" />
+          <ScalarProperty Name="SPrice" ColumnName="SPrice" />
+          <ScalarProperty Name="SAvgPrice" ColumnName="SAvgPrice" />
+          <ScalarProperty Name="SInterestCalSum" ColumnName="SInterestCalSum" />
+          <ScalarProperty Name="SMarketPrice" ColumnName="SMarketPrice" />
+          <ScalarProperty Name="SUnrealized" ColumnName="SUnrealized" />
+          <ScalarProperty Name="MinDay" ColumnName="MinDay" />
+          <ScalarProperty Name="InterestCalPercent" ColumnName="InterestCalPercent" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetDailyReportTradingByDate" FunctionName="DBStockMarketModel.Store.GetDailyReportTradingByDate">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DBStockMarketModel.GetDailyReportTradingByDate_Result">
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="TradeCloseDate" ColumnName="TradeCloseDate" />
+          <ScalarProperty Name="OpenInstrument" ColumnName="OpenInstrument" />
+          <ScalarProperty Name="OpenAvgPrice" ColumnName="OpenAvgPrice" />
+          <ScalarProperty Name="CloseVolume" ColumnName="CloseVolume" />
+          <ScalarProperty Name="ClosePrice" ColumnName="ClosePrice" />
+          <ScalarProperty Name="InterestCalPercent" ColumnName="InterestCalPercent" />
+          <ScalarProperty Name="InterestCalSum" ColumnName="InterestCalSum" />
+          <ScalarProperty Name="BuySell" ColumnName="BuySell" />
+          <ScalarProperty Name="OpenClose" ColumnName="OpenClose" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

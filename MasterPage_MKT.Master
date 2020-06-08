@@ -1,0 +1,25 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MasterPage_MKT.master.cs" Inherits="PGMKTStock.MasterPage_MKT" %>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!DOCTYPE html>
+<html  lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head  runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+    <form id="form1" runat="server">
+    <div>
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    </div>
+    </form>
+    </div>
+</div>
+</body>
+
+</html>

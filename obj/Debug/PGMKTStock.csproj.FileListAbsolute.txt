@@ -1,0 +1,6 @@
+E:\HSHProject\PGStockForMKT\PGMKTStock\PGMKTStock\bin\PGMKTStock.dll
+E:\HSHProject\PGStockForMKT\PGMKTStock\PGMKTStock\bin\PGMKTStock.pdb
+E:\HSHProject\PGStockForMKT\PGMKTStock\PGMKTStock\bin\EntityFramework.dll
+E:\HSHProject\PGStockForMKT\PGMKTStock\PGMKTStock\bin\EntityFramework.xml
+E:\HSHProject\PGStockForMKT\PGMKTStock\PGMKTStock\obj\Debug\PGMKTStock.dll
+E:\HSHProject\PGStockForMKT\PGMKTStock\PGMKTStock\obj\Debug\PGMKTStock.pdb
